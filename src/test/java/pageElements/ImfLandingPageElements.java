@@ -16,4 +16,5 @@ public class ImfLandingPageElements {
 	public String SOCIAL_TAB_XPATH="//li[contains(@class,'droopmenu-mega')]//a[text()='Social']";
 	
 	
+	
 }
