@@ -22,6 +22,17 @@ public class ImfLandingPage {
 		CUtil.waitUtilAtNextPage("International Monetary Fund - Homepage");
 		return CUtil.isDisplayed(By.xpath(ImfLandingPageElements.IMF_LOGO_XPATH));
 	}
+	
+	public void clickcountriestab() {
+		CUtil.clickSelenium(By.xpath(ImfLandingPageElements.COUNTRIES_TAB_XPATH));	
+	}
+	
+	public boolean isICILogoPresent() {
+		CUtil.waitUtilAtNextPage("IMF Country Information");
+		return CUtil.isDisplayed(By.xpath(ImfLandingPageElements.ICI_LOGO_XPATH));
+	}
+	
+	
 
 	public boolean isTabDisplayed(String text) {
 		switch (text) {

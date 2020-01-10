@@ -18,6 +18,11 @@ Feature: Test the page under Coutries tab India and Ireland in imf.org url
   
   
 
+  Scenario: test 2
+  
+  Given I am on imf.org landing Page
+  Then I should verify Countries Tab is clickable
+  And I should see ICI logo
   
   
   

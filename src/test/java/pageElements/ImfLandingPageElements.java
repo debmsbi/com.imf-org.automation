@@ -14,6 +14,7 @@ public class ImfLandingPageElements {
 	public String DATA_TAB_XPATH="//li[contains(@class,'droopmenu-mega')]//a[text()='Data']";
 	public String PUBLICATIONS_TAB_XPATH="//li[contains(@class,'droopmenu-mega')]//a[text()='Publications']";
 	public String SOCIAL_TAB_XPATH="//li[contains(@class,'droopmenu-mega')]//a[text()='Social']";
+	public String ICI_LOGO_XPATH="//html/body/div[3]/h1";
 	
 	
 	
