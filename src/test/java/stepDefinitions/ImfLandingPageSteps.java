@@ -1,7 +1,11 @@
 package stepDefinitions;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import cucumber.api.java.en.*;
 import runner.SharedDriver;
 import pageActions.ImfLandingPage;
@@ -31,7 +35,7 @@ public class ImfLandingPageSteps {
 	    Assert.assertTrue(ImfLandingPage.isTabDisplayed(text));
 	}
 	
-	@Then("I should verify Countries Tab is clickable")
+	@Then("I click Countries Tab")
 	public void i_should_verify_Countries_Tab_is_clickable() {
 	    // Write code here that turns the phrase above into concrete actions
 		ImfLandingPage.clickcountriestab();
@@ -42,5 +46,32 @@ public class ImfLandingPageSteps {
 	    // Write code here that turns the phrase above into concrete actions
 		Assert.assertTrue(ImfLandingPage.isICILogoPresent());
 	}
+	
+	@Given("I am on imf.org countries Page")
+	public void i_am_on_imf_org_countries_Page() {
+	    // Write code here that turns the phrase above into concrete actions
+		Assert.assertTrue(ImfLandingPage.isICILogoPresent());
+	}
+
+	@Then("I see list of countries")
+	public void i_see_list_of_countries() {
+	    // Write code here that turns the phrase above into concrete actions
+		List<WebElement> listofcoun =ImfLandingPage.list_of_countries();
+		System.out.println(listofcoun.get(0));
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

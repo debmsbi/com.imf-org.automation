@@ -16,13 +16,19 @@ Feature: Test the page under Coutries tab India and Ireland in imf.org url
   And I should see "Publications" is present
   And I should see "Social" is present
   
-  
 
   Scenario: test 2
   
   Given I am on imf.org landing Page
-  Then I should verify Countries Tab is clickable
+  Then I click Countries Tab
   And I should see ICI logo
+  
+   Scenario: test 3
+  
+  Given I am on imf.org countries Page
+  Then I see list of countries
+
+  
   
   
   

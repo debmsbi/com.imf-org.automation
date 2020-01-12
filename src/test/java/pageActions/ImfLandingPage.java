@@ -1,7 +1,12 @@
 package pageActions;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import commonUtils.CUtil;
 import pageElements.ImfLandingPageElements;
 
@@ -32,6 +37,16 @@ public class ImfLandingPage {
 		return CUtil.isDisplayed(By.xpath(ImfLandingPageElements.ICI_LOGO_XPATH));
 	}
 	
+	public List<WebElement> list_of_countries() {
+		List<WebElement> loc = webDriver.findElements(By.xpath(ImfLandingPageElements.List_Of_Countries_XPATH));
+
+		Iterator<WebElement> itr = loc.iterator();
+		while(itr.hasNext()) {
+		    System.out.println(itr.next());
+		}
+		return loc;
+		
+	}
 	
 
 	public boolean isTabDisplayed(String text) {

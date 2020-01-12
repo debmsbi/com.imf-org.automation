@@ -17,5 +17,8 @@ public class ImfLandingPageElements {
 	public String ICI_LOGO_XPATH="//html/body/div[3]/h1";
 	
 	
+	public String List_Of_Countries_XPATH="//article/div/section[9]/ul/li";
+	
+	
 	
 }
