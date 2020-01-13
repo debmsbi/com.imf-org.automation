@@ -2,31 +2,37 @@
 Feature: Test the page under Coutries tab India and Ireland in imf.org url
   I want to test the page in Coutries tab India and Ireland in imf.org url
 
-  Scenario: test 1
+  Scenario Outline: Test 1
   
   Given I am on imf.org landing Page
-  Then I should see IMF logo
-  And I should see "About" is present
-  And I should see "Research" is present 
-  And I should see "Countries" is present 
-  And I should see "Capacity_Development" is present 
-  And I should see "News" is present
-  And I should see "Videos" is present
-  And I should see "Data" is present
-  And I should see "Publications" is present
-  And I should see "Social" is present
+  Then I should view IMF logo
+  And I should view "<Tabs>"
+  
+  Examples: 
+  |    Tabs                  |  
+  |    About                 |
+  |    Research              | 
+  |    Countries             | 
+  |    Capacity_Development  | 
+  |    News                  |  
+  |    Videos                |     
+  |    Data                  |  
+  |    Publications          |  
+  |    Social                |  
+  
+ 
   
 
   Scenario: test 2
   
   Given I am on imf.org landing Page
-  Then I click Countries Tab
-  And I should see ICI logo
+  When I click Countries Tab
+  Then I should view ICI logo
   
    Scenario: test 3
   
   Given I am on imf.org countries Page
-  Then I see list of countries
+  Then I should view list of countries
 
   
   
