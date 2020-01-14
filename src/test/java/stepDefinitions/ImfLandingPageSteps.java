@@ -19,9 +19,6 @@ public class ImfLandingPageSteps {
 		this.webDriver = webDriver;
 		ImfLandingPage = new ImfLandingPage(webDriver);
 	}
-	
-
-
 
 @Given("I am on imf.org landing Page")
 public void i_am_on_imf_org_landing_Page() {
