@@ -1,68 +1,69 @@
-@imf
-Feature: Test the page under Coutries tab India and Ireland in imf.org url
-  I want to test the page in Coutries tab India and Ireland in imf.org url
+@imf 
+Feature: Test the page under Coutries tab India and Ireland in imf.org url 
+	I want to test the page in Coutries tab India and Ireland in imf.org url
 
-@functional @ui
-  Scenario Outline: Verify different tabs in IMF.ORG homepage
-  
-  Given I am on imf.org landing Page
-  Then I should view IMF logo
-  And I should view "<Tabs>"
-  
-  Examples: 
-  |    Tabs                  |  
-  |    About                 |
-  |    Research              | 
-  |    Countries             | 
-  |    Capacity_Development  | 
-  |    News                  |  
-  |    Videos                |     
-  |    Data                  |  
-  |    Publications          |  
-  |    Social                |  
-  
- 
-  
-@functional @ui
-  Scenario: Verify IMF COUNTRY INFORMATION logo when click on countries tab 
-  
-  Given I am on imf.org landing Page
-  When I click Countries Tab
-  Then I should view ICI logo
-  
-  @functional @ui
-   Scenario: Verify the list of countries displayed in countries tab
-  
-  Given I am on imf.org countries Page
-  Then I should view list of countries
+@functional @verifytabs @ui @homepage
 
-   @functional @ui
-   Scenario Outline: Verify the data in the page displayed when clicked on India,Ireland country links
-   
-  Given I click on "<Countries>" country
-  When I am in country India Page
-  Then I should view real GDP growth under Country Data section
-  And I should view graph under under Country Data section
-  And I should view enter text search field under Country Data section
-   
-  
-  Examples: 
-  | Countries  |  
-  | India      |
-  | Ireland    |
-  
-  
-  @functional @ui
-   Scenario Outline: Verify the data in the page displayed when user enter India,Ireland in the search text box and click search button
-  
-  Given I enter "<Countries text>" in text box search and enter search button
-  When I am in country search Page
-  And I click on "<Countries IMF>" link
-  Then I should view "<Country>" Page
-  
-  Examples: 
-  | Countries text  | Countries IMF       | Country   | 
-  | India           | India and the IMF   | India     |
-  | Ireland         | Ireland and the IMF | Ireland   |
+Scenario Outline: Verify different tabs in IMF.ORG homepage 
 
-  
+	Given I am on imf.org landing Page 
+	Then I should view IMF logo 
+	And I should view "<Tabs>" 
+
+  Examples: 
+	  
+	  |    Tabs                  |
+		|    About                 |
+		|    Research              | 
+		|    Countries             | 
+		|    Capacity_Development  | 
+		|    News                  |  
+		|    Videos                |     
+		|    Data                  |  
+		|    Publications          |  
+		|    Social                |
+
+
+		@functional @verifylanguages @ui @homepage
+   Scenario: Verify different languages available in IMF.ORG homepage 
+
+	  Given I am on imf.org landing Page 
+	  Then I should view IMF logo 
+		And I should view list of languages
+		
+
+		@functional @verifycountries @ui @countrypage
+		Scenario: Verify list of coutries displayed when click on countries tab 
+		
+			Given I am on imf.org landing Page 
+			When I click Countries Tab  
+			Then I should view list of countries 
+		
+		
+		@functional @verifycountrydetails @countrypage @ui
+		Scenario Outline: Verify the country specific details are displayed when navigated to a particular country 
+	
+			Given I am on imf.org landing Page 
+			When I click Countries Tab 
+			When I click on "<country>" link 
+			Then I should see news section on respective country page 
+			And I should see At A Glance section is displayed on respective country page 
+			
+			Examples: 
+				|    country             |  
+				|    India               |
+				|    Ireland             |
+				
+		
+		@functional @verifylistofcountries @ui @countrypage
+		Scenario Outline: Verify list of coutries displayed when click on countries tab 
+		
+			Given I am on imf.org landing Page 
+			When I click Countries Tab 
+			When I enter "<country>" in the search textbox and click enter
+			Then I should view  respective country data
+				
+      Examples: 
+				|    country      |  
+				|    India        |
+				|    Ireland      |

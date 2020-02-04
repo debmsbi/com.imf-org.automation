@@ -7,8 +7,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(dryRun = false, features = "src/test/resource/Features", glue = { "stepDefinitions",
-		"runner" }, tags = { "@ui" }, plugin = { "html:target/cucumber-report/Regression",
+		"runner" }, tags = { "@countrypage" }, plugin = { "html:target/cucumber-report/Regression",
 				"json:target/cucumber-report/Regression.json", "rerun:rerun/failed_scenarios.txt" })
 
-public class Runner_AT {
+public class CountryPage_Runner_AT2 {
 }

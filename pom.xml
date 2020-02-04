@@ -1,18 +1,19 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>Automation</groupId>
-  <artifactId>IMF</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>Automation</groupId>
+	<artifactId>IMF</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>IMF</name>
-  <url>http://maven.apache.org</url>
+	<name>IMF</name>
+	<url>http://maven.apache.org</url>
 
-  	<properties>
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<surefire.fork.count>2</surefire.fork.count>
+		<surefire.fork.count>3</surefire.fork.count>
 		<cucumber.version>4.3.1</cucumber.version>
 		<selenium.version>3.12.0</selenium.version>
 		<junit.version>4.11</junit.version>
@@ -49,7 +50,7 @@
 							<argLine>-Dfile.encoding=UTF-8</argLine>
 							<useFile>false</useFile>
 							<includes>
-								<include>**/Runner_AT.class</include>
+								<include>**/*_AT.class</include>
 							</includes>
 							<testFailureIgnore>true</testFailureIgnore>
 							<systemPropertyVariables>
@@ -59,7 +60,8 @@
 								<qa.user>default</qa.user>
 								<qa.password>default</qa.password>
 								<implicit.wait>30</implicit.wait>
-								<explicit.wait>30</explicit.wait>>
+								<explicit.wait>30</explicit.wait>
+								>
 							</systemPropertyVariables>
 						</configuration>
 					</execution>
@@ -81,7 +83,10 @@
 				<configuration>
 					<sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
 					<generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
-					<customPageTitle>Regression Suite</customPageTitle>
+					<customPageTitle>IMF Portal Regression Suite</customPageTitle>
+					<expandBeforeAfterHooks>true</expandBeforeAfterHooks>
+					<expandStepHooks>true</expandStepHooks>
+					<expandDocStrings>true</expandDocStrings>
 				</configuration>
 			</plugin>
 
@@ -139,6 +144,11 @@
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
 			<version>${cucumber.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.1.2</version>
 		</dependency>
 	</dependencies>
 </project>
